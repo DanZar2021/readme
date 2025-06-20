@@ -8,4 +8,4 @@ The SwiftUI implementation lives in the `LiquidGlassTodo` directory. These files
 
 ## Web Example
 
-A simple HTML/CSS/JavaScript version is available in `LiquidGlassTodoWeb`. Open `index.html` in a modern browser to experiment with the same look and feel directly on the web.
+A simple HTML/CSS/JavaScript version is available in `index.html` at the project root (also mirrored in the `LiquidGlassTodoWeb` folder). Open this file in a modern browser to experiment with the same look and feel directly on the web.
