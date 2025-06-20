@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct LiquidGlassTodoApp: App {
+struct IOS26WEBAPPApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
