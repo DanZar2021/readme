@@ -1,7 +1,11 @@
 # Liquid Glass To-Do App
 
-This repository contains a small example of a to-do application written in SwiftUI. The interface uses a "liquid glass" aesthetic, achieved with SwiftUI's `ultraThinMaterial` background and a blurred gradient.
+This repository contains two small examples of a to-do application using a liquid-glass style interface.
 
-The Swift source files can be found in the `LiquidGlassTodo` directory. These files are meant to be included in an Xcode project targeting iOS 15 or later.
+## SwiftUI Example
 
-To run the app, open the project in Xcode and build for an iOS simulator or device.
+The SwiftUI implementation lives in the `LiquidGlassTodo` directory. These files are intended to be added to an Xcode project targeting iOS 15 or later. Build and run the app on a simulator or device to see the glassmorphism aesthetic in action.
+
+## Web Example
+
+A simple HTML/CSS/JavaScript version is available in `LiquidGlassTodoWeb`. Open `index.html` in a modern browser to experiment with the same look and feel directly on the web.

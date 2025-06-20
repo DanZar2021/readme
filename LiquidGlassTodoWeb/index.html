@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Liquid Glass To-Do</title>
+<style>
+ body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.6), rgba(136, 58, 255, 0.6));
+ }
+ .glass-container {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 2rem;
+  width: 320px;
+ }
+ .todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+ }
+ .todo-item.completed span {
+  text-decoration: line-through;
+  color: gray;
+ }
+ button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+ }
+ input[type="text"] {
+  flex: 1;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 6px;
+ }
+ input[type="text"]:focus {
+  outline: none;
+ }
+</style>
+</head>
+<body>
+ <div class="glass-container">
+  <h2>My Tasks</h2>
+  <div>
+   <input id="new-task" type="text" placeholder="Add task" />
+   <button id="add-btn">➕</button>
+  </div>
+  <ul id="list" style="list-style:none;padding:0;margin-top:1rem;"></ul>
+ </div>
+<script>
+ const list = document.getElementById('list');
+ const input = document.getElementById('new-task');
+ const addBtn = document.getElementById('add-btn');
+ const items = [];
+ function render() {
+  list.innerHTML = '';
+  items.forEach((item, idx) => {
+   const li = document.createElement('li');
+   li.className = 'todo-item' + (item.done ? ' completed' : '');
+   const span = document.createElement('span');
+   span.textContent = item.title;
+   span.onclick = () => { items[idx].done = !items[idx].done; render(); };
+   const del = document.createElement('button');
+   del.textContent = '🗑️';
+   del.onclick = () => { items.splice(idx, 1); render(); };
+   li.append(span, del);
+   list.appendChild(li);
+  });
+ }
+ addBtn.onclick = () => {
+  if (input.value.trim()) {
+   items.push({title: input.value.trim(), done:false});
+   input.value = '';
+   render();
+  }
+ };
+ input.addEventListener('keyup', e => { if (e.key === 'Enter') addBtn.onclick(); });
+ render();
+</script>
+</body>
+</html>
